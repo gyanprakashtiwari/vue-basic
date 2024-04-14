@@ -4,6 +4,7 @@
         <li v-for="transaction in transactions" :key="transaction.id"
             :class="transaction.amount < 0 ? 'minus' : 'plus'">
             {{ transaction.text }} <span>${{ transaction.amount }}</span>
+            <!-- <img :src="transaction.flags.svg" class="flag"> -->
             <button @click="deleteTransaction(transaction.id)" class="delete-btn">x</button>
         </li>
     </ul>
@@ -26,3 +27,10 @@ const deleteTransaction = (id) => {
 }
 
 </script>
+
+<style scoped>
+.flag{
+    height: 100px;
+    width: 100px;
+}
+</style>

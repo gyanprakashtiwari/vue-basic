@@ -18,16 +18,29 @@ import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 import { ref, computed, onMounted } from 'vue';
 import { useToast } from 'vue-toastification';
+// import { Axios } from "axios";
+import axios from "axios";
 
 const toast = useToast();
 
 const transactions = ref([]);
+const countries = ref([]);
+
 
 onMounted(() => {
   const savedTransactions = JSON.parse(localStorage.getItem('transactions'));
   if (savedTransactions) {
     transactions.value = savedTransactions;
-  }
+  };
+  // console.log("kuch bhi")
+  // axios.get("https://restcountries.com/v3.1/all").then((response) => {
+  //   console.log("jhasash")
+  //   console.log(response.data);
+  //   transactions.value = response.data
+  // }).catch((err) => {
+  //   console.log(err);
+  // })
+
 })
 
 // Get total balance
